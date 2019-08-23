@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="6" passed="6" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2019-08-20T10:13:37Z" name="Suite" finished-at="2019-08-20T10:17:15Z" duration-ms="217345">
+    <groups>
+    </groups>
+    <test started-at="2019-08-20T10:13:37Z" name="Test" finished-at="2019-08-20T10:17:15Z" duration-ms="217345">
+      <class name="WOG.AppiumFramework.LoginTest">
+        <test-method is-config="true" signature="killAllNodes()[pri:0, instance:WOG.AppiumFramework.LoginTest@683dbc2c]" started-at="2019-08-20T10:13:37Z" name="killAllNodes" finished-at="2019-08-20T10:13:40Z" duration-ms="3074" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- killAllNodes -->
+        <test-method signature="Login_0001()[pri:0, instance:WOG.AppiumFramework.LoginTest@683dbc2c]" started-at="2019-08-20T10:13:40Z" name="Login_0001" finished-at="2019-08-20T10:14:37Z" duration-ms="56434" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Login_0001 -->
+        <test-method signature="Login_0002(java.lang.String)[pri:0, instance:WOG.AppiumFramework.LoginTest@683dbc2c]" started-at="2019-08-20T10:14:37Z" name="Login_0002" data-provider="LoginWithCompanyEmailOnly" finished-at="2019-08-20T10:15:07Z" duration-ms="29692" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[ericadisto@gmail.com]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Login_0002 -->
+        <test-method signature="Login_0003(java.lang.String)[pri:0, instance:WOG.AppiumFramework.LoginTest@683dbc2c]" started-at="2019-08-20T10:15:07Z" name="Login_0003" data-provider="LoginWithPasswordOnly" finished-at="2019-08-20T10:15:57Z" duration-ms="50865" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[adminadmin123]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Login_0003 -->
+        <test-method signature="Login_0004(java.lang.String, java.lang.String)[pri:0, instance:WOG.AppiumFramework.LoginTest@683dbc2c]" started-at="2019-08-20T10:15:57Z" name="Login_0004" data-provider="LoginValidCompanyEmailInvalidPassword" finished-at="2019-08-20T10:16:22Z" duration-ms="24300" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[ericadisto@gmail.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Loremipsum123456789]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Login_0004 -->
+        <test-method signature="Login_0005(java.lang.String, java.lang.String)[pri:0, instance:WOG.AppiumFramework.LoginTest@683dbc2c]" started-at="2019-08-20T10:16:22Z" name="Login_0005" data-provider="LoginInvalidData" finished-at="2019-08-20T10:16:46Z" duration-ms="24512" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[wog.stanleyfuji@gmail.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Wog123456789]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Login_0005 -->
+        <test-method signature="Login_0006(java.lang.String, java.lang.String)[pri:0, instance:WOG.AppiumFramework.LoginTest@683dbc2c]" started-at="2019-08-20T10:16:46Z" name="Login_0006" data-provider="LoginValidData" finished-at="2019-08-20T10:17:15Z" duration-ms="28448" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[ericadisto@gmail.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[adminadmin123]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Login_0006 -->
+      </class> <!-- WOG.AppiumFramework.LoginTest -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>
