@@ -1,5 +1,7 @@
 package HiMollyAppPageObjects;
 
+import static org.testng.Assert.assertEquals;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
@@ -31,6 +33,9 @@ public class LoginPage {
 	
 	@AndroidFindBy (xpath = "//android.widget.Toast[1]")
 	public WebElement ToastMessage;
+	
+	@AndroidFindBy (id = "com.wog.himolly:id/img_photo")
+	public WebElement ImagePhoto;
 	
 	public void LoginWithNoData()
 	{
@@ -87,6 +92,8 @@ public class LoginPage {
 		CompanyEmail_Textbox.sendKeys(CompanyEmail);
 		Password_Textbox.sendKeys(Password);
 		Login_Button.click();
+		Assert.assertFalse(ImagePhoto.isDisplayed());
+		
 	}
 	
 }
