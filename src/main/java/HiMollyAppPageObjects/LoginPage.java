@@ -55,7 +55,7 @@ public class LoginPage {
 		Password_Textbox.sendKeys(Password);
 		Login_Button.click();
 		String toastmessage = ToastMessage.getText();
-		String expectedmessage = "All fields are required.!!!!!!";
+		String expectedmessage = "All fields are required.";
 		Assert.assertEquals(toastmessage, expectedmessage);
 	}
 	
