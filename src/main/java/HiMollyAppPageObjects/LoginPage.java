@@ -92,7 +92,7 @@ public class LoginPage {
 		CompanyEmail_Textbox.sendKeys(CompanyEmail);
 		Password_Textbox.sendKeys(Password);
 		Login_Button.click();
-		Assert.assertFalse(ImagePhoto.isDisplayed());
+		Assert.assertTrue(ImagePhoto.isDisplayed());
 		
 	}
 	
