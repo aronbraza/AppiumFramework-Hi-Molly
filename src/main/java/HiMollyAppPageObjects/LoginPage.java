@@ -1,18 +1,19 @@
 package HiMollyAppPageObjects;
 
-import static org.testng.Assert.assertEquals;
+
+
+
+import java.io.IOException;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
-
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
-import io.appium.java_client.pagefactory.AndroidBy;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
-public class LoginPage {
+public class LoginPage  {
 	
 	 public LoginPage(AndroidDriver<AndroidElement> driver ) 
 	 {
@@ -37,63 +38,69 @@ public class LoginPage {
 	@AndroidFindBy (id = "com.wog.himolly:id/img_photo")
 	public WebElement ImagePhoto;
 	
-	public void LoginWithNoData()
-	{
-
-		Login_Button.click();
-		String toastmessage = ToastMessage.getText();
-		String expectedmessage = "All fields are required.";
-		Assert.assertEquals(toastmessage, expectedmessage);
-	}
-	
-	public void LoginWithCompanyEmailOnly(String CompanyEmail)
-	{
-		CompanyEmail_Textbox.sendKeys(CompanyEmail);
-		Login_Button.click();
-		String toastmessage = ToastMessage.getText();
-		String expectedmessage = "All fields are required.";
-		Assert.assertEquals(toastmessage, expectedmessage);
-	}
-	
-	public void LoginWithPasswordOnly(String Password)
-	{
-		Password_Textbox.sendKeys(Password);
-		Login_Button.click();
-		String toastmessage = ToastMessage.getText();
-		String expectedmessage = "All fields are required.";
-		Assert.assertEquals(toastmessage, expectedmessage);
-	}
-	
-	public void LoginWithValidCompanyEmailInvalidPassword(String ValidCompanyEmail, String InvalidPassword)
-	
-	{
-		CompanyEmail_Textbox.sendKeys(ValidCompanyEmail);
-		Password_Textbox.sendKeys(InvalidPassword);
-		Login_Button.click();
-		String toastmessage = ToastMessage.getText();
-		String expectedmessage = "Invalid email or password.";
-		Assert.assertEquals(toastmessage, expectedmessage);
-	}
-	
-	
-	
-	public void LoginWithNonExistingAccount(String InvalidCompanyEmail, String InvalidPassword)
-	{
-		CompanyEmail_Textbox.sendKeys(InvalidCompanyEmail);
-		Password_Textbox.sendKeys(InvalidPassword);
-		Login_Button.click();
-		String toastmessage = ToastMessage.getText();
-		String expectedmessage = "Invalid email or password.";
-		Assert.assertEquals(toastmessage, expectedmessage);
-	}
-	
-	public void LoginWithValidData(String CompanyEmail, String Password)
-	{
+	public void LoginWithValidData(String CompanyEmail, String Password) throws IOException, InterruptedException
+	{		
 		CompanyEmail_Textbox.sendKeys(CompanyEmail);
 		Password_Textbox.sendKeys(Password);
 		Login_Button.click();
 		Assert.assertTrue(ImagePhoto.isDisplayed());
 		
 	}
+	
+	public void LoginWithNoData(String CompanyEmail, String Password)
+	{
+
+		Login_Button.click();
+		CompanyEmail_Textbox.sendKeys(CompanyEmail);
+		Password_Textbox.sendKeys(Password);
+		String toastmessage = ToastMessage.getText();
+		String expectedmessage = "All fields are required.";
+		Assert.assertEquals(toastmessage, expectedmessage);
+	}
+	
+	public void LoginWithCompanyEmailOnly(String CompanyEmail, String Password)
+	{
+		CompanyEmail_Textbox.sendKeys(CompanyEmail);
+		Password_Textbox.sendKeys(Password);
+		Login_Button.click();
+		String toastmessage = ToastMessage.getText();
+		String expectedmessage = "All fields are required.";
+		Assert.assertEquals(toastmessage, expectedmessage);
+	}
+	
+	public void LoginWithPasswordOnly(String CompanyEmail, String Password)
+	{
+		CompanyEmail_Textbox.sendKeys(CompanyEmail);
+		Password_Textbox.sendKeys(Password);
+		Login_Button.click();
+		String toastmessage = ToastMessage.getText();
+		String expectedmessage = "All fields are required.";
+		Assert.assertEquals(toastmessage, expectedmessage);
+	}
+	
+	public void LoginWithValidCompanyEmailInvalidPassword(String CompanyEmail, String Password)
+	
+	{
+		CompanyEmail_Textbox.sendKeys(CompanyEmail);
+		Password_Textbox.sendKeys(Password);
+		Login_Button.click();
+		String toastmessage = ToastMessage.getText();
+		String expectedmessage = "Invalid email or password.";
+		Assert.assertEquals(toastmessage, expectedmessage);
+	}
+	
+	
+	
+	public void LoginWithNonExistingAccount(String CompanyEmail, String Password)
+	{
+		CompanyEmail_Textbox.sendKeys(CompanyEmail);
+		Password_Textbox.sendKeys(Password);
+		Login_Button.click();
+		String toastmessage = ToastMessage.getText();
+		String expectedmessage = "Invalid email or password.";
+		Assert.assertEquals(toastmessage, expectedmessage);
+	}
+	
+	
 	
 }

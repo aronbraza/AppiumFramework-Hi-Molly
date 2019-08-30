@@ -6,6 +6,7 @@ import java.io.IOException;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
+import ExcelTestData.LoginTestData;
 import HiMollyAppPageObjects.LanguagePage;
 import HiMollyAppPageObjects.LoginPage;
 import io.appium.java_client.android.AndroidDriver;
@@ -21,73 +22,8 @@ public class LoginTest extends base {
 		
 	}
 	
-	@Test
-	public void Login_0001() throws IOException, InterruptedException
-	{
-		service = startServer();
-		AndroidDriver<AndroidElement> driver = Capabilities("HiMollyApp");
-		LanguagePage _languagePage = new LanguagePage(driver);
-		LoginPage _loginPage = new LoginPage(driver);
-		_languagePage.ChooseEnglishLanguage();
-		_loginPage.LoginWithNoData();
-		service.stop();
-		
-	}
-	
-	@Test(dataProvider = "LoginWithCompanyEmailOnly", dataProviderClass=TestData.class)
-	public void Login_0002(String CompanyEmail) throws IOException, InterruptedException
-	{
-		service = startServer();
-		AndroidDriver<AndroidElement> driver = Capabilities("HiMollyApp");
-		LanguagePage _languagePage = new LanguagePage(driver);
-		LoginPage _loginPage = new LoginPage(driver);
-		_languagePage.ChooseEnglishLanguage();
-		_loginPage.LoginWithCompanyEmailOnly(CompanyEmail);
-		service.stop();
-		
-	}
-	
-	
-	@Test(dataProvider = "LoginWithPasswordOnly", dataProviderClass=TestData.class)
-	public void Login_0003(String Password) throws IOException, InterruptedException
-	{
-		service = startServer();
-		AndroidDriver<AndroidElement> driver = Capabilities("HiMollyApp");
-		LanguagePage _languagePage = new LanguagePage(driver);
-		LoginPage _loginPage = new LoginPage(driver);
-		_languagePage.ChooseEnglishLanguage();
-		_loginPage.LoginWithPasswordOnly(Password);
-		service.stop();
-		
-	}
-	
-	@Test(dataProvider = "LoginValidCompanyEmailInvalidPassword", dataProviderClass=TestData.class)
-	public void Login_0004(String ValidCompanyEmail, String InvalidPassword) throws IOException, InterruptedException
-	{
-		service = startServer();
-		AndroidDriver<AndroidElement> driver = Capabilities("HiMollyApp");
-		LanguagePage _languagePage = new LanguagePage(driver);
-		LoginPage _loginPage = new LoginPage(driver);
-		_languagePage.ChooseEnglishLanguage();
-		_loginPage.LoginWithValidCompanyEmailInvalidPassword(ValidCompanyEmail, InvalidPassword);
-		service.stop();
-	}
-	
-	@Test(dataProvider = "LoginInvalidData", dataProviderClass=TestData.class)
-	public void Login_0005(String InvalidCompanyEmail, String InvalidPassword) throws IOException, InterruptedException
-	{
-		service = startServer();
-		AndroidDriver<AndroidElement> driver = Capabilities("HiMollyApp");
-		LanguagePage _languagePage = new LanguagePage(driver);
-		LoginPage _loginPage = new LoginPage(driver);
-		_languagePage.ChooseEnglishLanguage();
-		_loginPage.LoginWithNonExistingAccount(InvalidCompanyEmail, InvalidPassword);
-		service.stop();
-	}
-	
-	
-	@Test(dataProvider = "LoginValidData", dataProviderClass=TestData.class)
-	public void Login_0006(String CompanyEmail, String Password) throws IOException, InterruptedException
+	@Test(dataProvider = "Login_0001", dataProviderClass=LoginTestData.class)
+	public void Login_0001(String CompanyEmail, String Password) throws IOException, InterruptedException
 	{
 		service = startServer();
 		AndroidDriver<AndroidElement> driver = Capabilities("HiMollyApp");
@@ -98,6 +34,75 @@ public class LoginTest extends base {
 		service.stop();
 		
 	}
+	
+	@Test(dataProvider = "Login_0002", dataProviderClass=LoginTestData.class)
+	public void Login_0002(String CompanyEmail, String Password) throws IOException, InterruptedException
+	{
+		service = startServer();
+		AndroidDriver<AndroidElement> driver = Capabilities("HiMollyApp");
+		LanguagePage _languagePage = new LanguagePage(driver);
+		LoginPage _loginPage = new LoginPage(driver);
+		_languagePage.ChooseEnglishLanguage();
+		_loginPage.LoginWithNoData(CompanyEmail, Password);
+		service.stop();
+		
+	}
+	
+	@Test(dataProvider = "Login_0003", dataProviderClass=LoginTestData.class)
+	public void Login_0003(String CompanyEmail, String Password) throws IOException, InterruptedException
+	{
+		service = startServer();
+		AndroidDriver<AndroidElement> driver = Capabilities("HiMollyApp");
+		LanguagePage _languagePage = new LanguagePage(driver);
+		LoginPage _loginPage = new LoginPage(driver);
+		_languagePage.ChooseEnglishLanguage();
+		_loginPage.LoginWithCompanyEmailOnly(CompanyEmail, Password);
+		service.stop();
+		
+	}
+	
+	
+	@Test(dataProvider = "Login_0004", dataProviderClass=LoginTestData.class)
+	public void Login_0004(String CompanyEmail, String Password) throws IOException, InterruptedException
+	{
+		service = startServer();
+		AndroidDriver<AndroidElement> driver = Capabilities("HiMollyApp");
+		LanguagePage _languagePage = new LanguagePage(driver);
+		LoginPage _loginPage = new LoginPage(driver);
+		_languagePage.ChooseEnglishLanguage();
+		_loginPage.LoginWithPasswordOnly(CompanyEmail, Password);
+		service.stop();
+		
+	}
+	
+	@Test(dataProvider = "Login_0005", dataProviderClass=LoginTestData.class)
+	public void Login_0005(String CompanyEmail, String Password) throws IOException, InterruptedException
+	{
+		service = startServer();
+		AndroidDriver<AndroidElement> driver = Capabilities("HiMollyApp");
+		LanguagePage _languagePage = new LanguagePage(driver);
+		LoginPage _loginPage = new LoginPage(driver);
+		_languagePage.ChooseEnglishLanguage();
+		_loginPage.LoginWithValidCompanyEmailInvalidPassword(CompanyEmail, Password);
+		service.stop();
+	}
+	
+	@Test(dataProvider = "Login_0006", dataProviderClass=LoginTestData.class)
+	public void Login_0006(String CompanyEmail, String Password) throws IOException, InterruptedException
+	{
+		service = startServer();
+		AndroidDriver<AndroidElement> driver = Capabilities("HiMollyApp");
+		LanguagePage _languagePage = new LanguagePage(driver);
+		LoginPage _loginPage = new LoginPage(driver);
+		_languagePage.ChooseEnglishLanguage();
+		_loginPage.LoginWithNonExistingAccount(CompanyEmail, Password);
+		service.stop();
+	}
+	
+	
+	
+	
+	
 	
 	
 

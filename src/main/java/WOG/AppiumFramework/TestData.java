@@ -1,6 +1,12 @@
 package WOG.AppiumFramework;
 
+import java.util.Arrays;
+import java.util.List;
+
+import org.apache.commons.compress.utils.Lists;
+import org.apache.commons.lang3.ArrayUtils;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
 
 public class TestData {
 	
@@ -20,7 +26,7 @@ public class TestData {
 	{
 		Object[][]obj = new Object[][]
 		{
-		{"ericadisto@gmail.com"}			
+		{"marymary@gmail.com"}			
 		
 		};
 		
@@ -45,7 +51,7 @@ public class TestData {
 	{
 		Object[][]obj = new Object[][]
 		{
-		{"ericadisto@gmail.com", "Loremipsum123456789"}			
+		{"marymary@gmail.com", "Loremipsum123456789"}			
 		
 		};
 		
@@ -69,12 +75,36 @@ public class TestData {
 	{
 		Object[][]obj = new Object[][]
 		{
-		{"ericadisto@gmail.com", "adminadmin123"}			
+		{"marymary@gmail.com", "adminadmin123"}			
 		
 		};
 		
 		return obj;
 	
 	}
+	
+	@DataProvider(name="PostStatusWithValidData")
+	public Object[][] getValidDataForPostStatus()
+	{
+		Object[][]obj = new Object[][]
+		{
+			{"Hello World!"}
+		};
+		
+		return obj;
+	}
+	
+	@DataProvider (name = "MergedPostStatusWithValidData")
+	public Object[][] getMergedPostStatusWithValidData()
+	{
+		List<Object[]> result = Lists.newArrayList();
+		  result.addAll(Arrays.asList(getValidDataForLogin()));
+		  result.addAll(Arrays.asList(getValidDataForPostStatus()));
+		  return result.toArray(new Object[result.size()][]);
+		
+	}
+	
 
+
+        
 }

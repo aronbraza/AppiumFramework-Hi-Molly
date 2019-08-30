@@ -83,8 +83,8 @@ public class base {
 		File app = new File(appDir, (String) prop.get(appName));
 		
 		DesiredCapabilities capabilities = new DesiredCapabilities();
-		//String device=(String) prop.get("device");
-		String device = System.getProperty("deviceName");
+		String device=(String) prop.get("device");
+		//String device = System.getProperty("deviceName");
 		if(device.contains("Nexus"))
 		{
 		  startEmulator();
@@ -95,6 +95,8 @@ public class base {
 		capabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 14);
 		capabilities.setCapability("appPackage", "com.wog.himolly");
 		capabilities.setCapability("appActivity", "com.wog.himolly.LoginActivity");
+		capabilities.setCapability("unicodeKeyboard", true);
+		capabilities.setCapability("resetKeyboard", true);
 		capabilities.setCapability(MobileCapabilityType.APP, app.getAbsolutePath());
 		driver = new AndroidDriver<AndroidElement>(new URL("http://127.0.0.1:4723/wd/hub"),capabilities);
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
