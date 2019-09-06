@@ -5,7 +5,7 @@
     <classes>
       <class name="WOG.AppiumFramework.HomeTest">
         <methods>
-          <include name="Home_0001" invocation-numbers="0"/>
+          <include name="Home_0008" invocation-numbers="0"/>
           <include name="killAllNodes"/>
         </methods>
       </class> <!-- WOG.AppiumFramework.HomeTest -->

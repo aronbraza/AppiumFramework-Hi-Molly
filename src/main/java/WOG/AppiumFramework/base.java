@@ -95,6 +95,7 @@ public class base {
 		capabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 14);
 		capabilities.setCapability("appPackage", "com.wog.himolly");
 		capabilities.setCapability("appActivity", "com.wog.himolly.LoginActivity");
+		capabilities.setCapability("autoGrantPermissions", true);
 		capabilities.setCapability("unicodeKeyboard", true);
 		capabilities.setCapability("resetKeyboard", true);
 		capabilities.setCapability(MobileCapabilityType.APP, app.getAbsolutePath());

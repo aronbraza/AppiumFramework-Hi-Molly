@@ -17,5 +17,10 @@ public class Utilities {
 	{
 		driver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\""+text+"\"));").click();
 	}
+	
+	public void ScrollToSelectCategory()
+	{
+		driver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text('Select Category'));");
+	}
 
 }
