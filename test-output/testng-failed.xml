@@ -3,12 +3,12 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="WOG.AppiumFramework.HomeTest">
+      <class name="WOG.AppiumFramework.ProfileTest">
         <methods>
-          <include name="Home_0008" invocation-numbers="0"/>
-          <include name="killAllNodes"/>
+          <include name="killnode"/>
+          <include name="Profile_0032"/>
         </methods>
-      </class> <!-- WOG.AppiumFramework.HomeTest -->
+      </class> <!-- WOG.AppiumFramework.ProfileTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
