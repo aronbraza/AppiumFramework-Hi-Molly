@@ -38,6 +38,9 @@ public class LoginPage  {
 	@AndroidFindBy (id = "com.wog.himolly:id/img_photo")
 	public WebElement ImagePhoto;
 	
+	
+	//Test Case ID: Login_0001
+	//Test Scenario: Verify if the user can login with valid data on the text fields.
 	public void LoginWithValidData(String CompanyEmail, String Password) throws IOException, InterruptedException
 	{		
 		CompanyEmail_Textbox.sendKeys(CompanyEmail);
@@ -46,6 +49,9 @@ public class LoginPage  {
 		Assert.assertTrue(ImagePhoto.isDisplayed());
 		
 	}
+	
+	//Test Case ID: Login_0002
+	//Test Scenario: Verify if the user can login without data on the text fields.
 	
 	public void LoginWithNoData(String CompanyEmail, String Password)
 	{
@@ -58,6 +64,9 @@ public class LoginPage  {
 		Assert.assertEquals(toastmessage, expectedmessage);
 	}
 	
+	//Test Case ID: Login_0003
+	//Test Scenario: Verify if the user can login using Company Email only.
+	
 	public void LoginWithCompanyEmailOnly(String CompanyEmail, String Password)
 	{
 		CompanyEmail_Textbox.sendKeys(CompanyEmail);
@@ -68,6 +77,9 @@ public class LoginPage  {
 		Assert.assertEquals(toastmessage, expectedmessage);
 	}
 	
+	//Test Case ID: Login_0004
+	//Test Scenario: Verify if the user can login using Password only.
+	
 	public void LoginWithPasswordOnly(String CompanyEmail, String Password)
 	{
 		CompanyEmail_Textbox.sendKeys(CompanyEmail);
@@ -77,6 +89,9 @@ public class LoginPage  {
 		String expectedmessage = "All fields are required.";
 		Assert.assertEquals(toastmessage, expectedmessage);
 	}
+	
+	//Test Case ID: Login_0005
+	//Test Scenario: Verify if the user can login with valid data on Company Email text field and invalid data on Password text field.
 	
 	public void LoginWithValidCompanyEmailInvalidPassword(String CompanyEmail, String Password)
 	
@@ -89,7 +104,8 @@ public class LoginPage  {
 		Assert.assertEquals(toastmessage, expectedmessage);
 	}
 	
-	
+	//Test Case ID: Login_0006
+	//Test Scenario: Verify if the user can login using non existing account.
 	
 	public void LoginWithNonExistingAccount(String CompanyEmail, String Password)
 	{

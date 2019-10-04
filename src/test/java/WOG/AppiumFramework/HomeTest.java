@@ -41,7 +41,7 @@ public class HomeTest extends base {
 	}
 	
 	@Test(dataProvider = "Home_0002", dataProviderClass=HomeTestDataStatus.class)
-	public void Home_0002(String CompanyEmail, String Password, String WhatAreYouWorkingOn, String TagAPersonOrGroup, String Hashtag) throws IOException, InterruptedException
+	public void Home_0002(String CompanyEmail, String Password, String WhatAreYouWorkingOn, String TagAPersonOrGroup, String TagAPersonOrGroup2, String Hashtag) throws IOException, InterruptedException
 	{
 		service = startServer();
 		AndroidDriver<AndroidElement> driver = Capabilities("HiMollyApp");
@@ -55,7 +55,7 @@ public class HomeTest extends base {
 	}
 	
 	@Test(dataProvider = "Home_0003", dataProviderClass=HomeTestDataStatus.class)
-	public void Home_0003(String CompanyEmail, String Password, String WhatAreYouWorkingOn, String TagAPersonOrGroup, String Hashtag) throws IOException, InterruptedException
+	public void Home_0003(String CompanyEmail, String Password, String WhatAreYouWorkingOn, String TagAPersonOrGroup, String TagAPersonOrGroup2, String Hashtag) throws IOException, InterruptedException
 	{
 		service = startServer();
 		AndroidDriver<AndroidElement> driver = Capabilities("HiMollyApp");
@@ -69,7 +69,7 @@ public class HomeTest extends base {
 	}
 	
 	@Test(dataProvider = "Home_0004", dataProviderClass=HomeTestDataStatus.class)
-	public void Home_0004(String CompanyEmail, String Password, String WhatAreYouWorkingOn, String TagAPersonOrGroup, String Hashtag) throws IOException, InterruptedException
+	public void Home_0004(String CompanyEmail, String Password, String WhatAreYouWorkingOn, String TagAPersonOrGroup, String TagAPersonOrGroup2, String Hashtag) throws IOException, InterruptedException
 	{
 		service = startServer();
 		AndroidDriver<AndroidElement> driver = Capabilities("HiMollyApp");
@@ -83,7 +83,7 @@ public class HomeTest extends base {
 	}
 	
 	@Test(dataProvider = "Home_0005", dataProviderClass=HomeTestDataStatus.class)
-	public void Home_0005(String CompanyEmail, String Password, String WhatAreYouWorkingOn, String TagAPersonOrGroup, String Hashtag) throws IOException, InterruptedException
+	public void Home_0005(String CompanyEmail, String Password, String WhatAreYouWorkingOn, String TagAPersonOrGroup, String TagAPersonOrGroup2, String Hashtag) throws IOException, InterruptedException
 	{
 		service = startServer();
 		AndroidDriver<AndroidElement> driver = Capabilities("HiMollyApp");
@@ -98,7 +98,7 @@ public class HomeTest extends base {
 	
 
 	@Test(dataProvider = "Home_0006" , dataProviderClass=HomeTestDataStatus.class)
-	public void Home_0006(String CompanyEmail, String Password, String WhatAreYouWorkingOn, String TagAPersonOrGroup, String Hashtag) throws IOException, InterruptedException
+	public void Home_0006(String CompanyEmail, String Password, String WhatAreYouWorkingOn, String TagAPersonOrGroup, String TagAPersonOrGroup2, String Hashtag) throws IOException, InterruptedException
 	{
 		
 		service = startServer();
@@ -108,15 +108,14 @@ public class HomeTest extends base {
 		HomePage _homePage = new HomePage(driver);
 		_languagePage.ChooseEnglishLanguage();
 		_loginPage.LoginWithValidData(CompanyEmail, Password);
-		_homePage.PostStatusWithValidDataWithTagPersonOrGroup(WhatAreYouWorkingOn, TagAPersonOrGroup, Hashtag);
+		_homePage.PostStatusWithValidDataWithTagPersonOrGroup(WhatAreYouWorkingOn, TagAPersonOrGroup, TagAPersonOrGroup2, Hashtag);
 		service.stop();
 
 		
 	}
 	
-	/**@throws InterruptedException 
-	 * @throws IOException 
-	 * @Test(dataProvider = "Home_0007", dataProviderClass=HomeTestDataStatus.class)
+	
+	/*@Test(dataProvider = "Home_0007", dataProviderClass=HomeTestDataStatus.class)
 	public void Home_0007(String CompanyEmail, String Password, String WhatAreYouWorkingOn, String 	TagAPersonOrGroup, String TagAPersonOrGroup2, String Hashtag) throws IOException, InterruptedException
 	{
 		service = startServer();
@@ -149,7 +148,7 @@ public class HomeTest extends base {
 	
 
 	@Test(dataProvider= "Home_0012", dataProviderClass=HomeTestDataStatus.class)
-	public void Home_0012(String CompanyEmail, String Password,String WhatsThisPollABout, String Option1, String Option2) throws IOException, InterruptedException
+	public void Home_0012(String CompanyEmail, String Password,String WhatsThisPollABout, String Option1, String Option2, String Option3, String Option4) throws IOException, InterruptedException
 	{
 		service = startServer();
 		AndroidDriver<AndroidElement> driver = Capabilities("HiMollyApp");
@@ -190,6 +189,22 @@ public class HomeTest extends base {
 		service.stop();
 	}
 	
+	@Test(dataProvider = "Home_0015", dataProviderClass=HomeTestDataStatus.class)
+	public void Home_0015(String CompanyEmail, String Password, String CategoryName, String SelectColor) throws IOException, InterruptedException
+	{
+		service = startServer();
+		AndroidDriver<AndroidElement> driver = Capabilities("HiMollyApp");
+		LanguagePage _languagePage = new LanguagePage(driver);
+		LoginPage _loginPage = new LoginPage(driver);
+		HomePage _homePage = new HomePage(driver);
+		_languagePage.ChooseEnglishLanguage();
+		_loginPage.LoginWithValidData(CompanyEmail, Password);
+		_homePage.EditCategory(CategoryName, SelectColor);
+		service.stop();
+	}
+	
+	
+	
 	@Test
 	public void Home_0017() throws IOException, InterruptedException
 	{
@@ -219,8 +234,8 @@ public class HomeTest extends base {
 		service.stop();
 	}
 	
-	@Test
-	public void Home_0024() throws IOException, InterruptedException
+	@Test(dataProvider ="Home_0024", dataProviderClass=HomeTestDataStatus.class)
+	public void Home_0024(String CompanyEmail, String Password, String SearchMolly) throws IOException, InterruptedException
 	{
 		service = startServer();
 		AndroidDriver<AndroidElement> driver = Capabilities("HiMollyApp");
@@ -228,10 +243,24 @@ public class HomeTest extends base {
 		LoginPage _loginPage = new LoginPage(driver);
 		HomePage _homePage = new HomePage(driver);
 		_languagePage.ChooseEnglishLanguage();
-		_loginPage.LoginWithValidData("marymary@gmail.com", "adminadmin123");
-		_homePage.SearchColleagueOrGroup();
+		_loginPage.LoginWithValidData(CompanyEmail,Password );
+		_homePage.SearchColleagueOrGroup(SearchMolly);
 		service.stop();
 	}
 	
+	
+	@Test(dataProvider ="Home_0025", dataProviderClass=HomeTestDataStatus.class)
+	public void Home_0025(String CompanyEmail, String Password, String SearchMolly) throws IOException, InterruptedException
+	{
+		service = startServer();
+		AndroidDriver<AndroidElement> driver = Capabilities("HiMollyApp");
+		LanguagePage _languagePage = new LanguagePage(driver);
+		LoginPage _loginPage = new LoginPage(driver);
+		HomePage _homePage = new HomePage(driver);
+		_languagePage.ChooseEnglishLanguage();
+		_loginPage.LoginWithValidData(CompanyEmail,Password );
+		_homePage.ViewProfile(SearchMolly);
+		service.stop();
+	}
 
 }

@@ -1,4 +1,5 @@
 package HiMollyAppPageObjects;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.NoSuchElementException;
@@ -6,6 +7,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.annotations.Test;
+
 import WOG.AppiumFramework.base;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
@@ -22,6 +25,7 @@ public class HomePage extends base {
 	public WebDriverWait wait = new WebDriverWait(driver, 10);
 	
 	
+	//Status
 	@AndroidFindBy(id = "com.wog.himolly:id/lnr_status")
 	public WebElement Status_Icon;
 	
@@ -33,16 +37,15 @@ public class HomePage extends base {
 	
 	@AndroidFindBy(uiAutomator = "text(\"Tag a person or group\")")
 	public WebElement TagPersonOrGroup_Textbox;
-	//xpath ="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/androidx.viewpager.widget.ViewPager/android.view.ViewGroup/android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.widget.ScrollView/androidx.recyclerview.widget.RecyclerView/android.widget.EditText\r\n" +""
 	
 	@AndroidFindBy(id = "com.wog.himolly:id/img_photo")
 	public WebElement Image_Photo;
 	
-	@AndroidFindBy(xpath ="//android.widget.EditText[@text='Add a hashtag']")
-	//uiAutomator ="text(\"Add a hashtag\")"
-	//"text(\"Female\")"
+	@AndroidFindBy(uiAutomator = "text(\"Add a hashtag\")")
 	public WebElement Hashtag_Textbox;
-	//"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/androidx.viewpager.widget.ViewPager/android.view.ViewGroup/android.widget.ScrollView/android.widget.LinearLayout/android.widget.ScrollView/androidx.recyclerview.widget.RecyclerView\r\n" +""
+	
+	@AndroidFindBy(id ="com.wog.himolly:id/txt_hashtag")
+	public WebElement Hashtag_Text;
 	
 	@AndroidFindBy(id ="com.wog.himolly:id/btn_tag_person")
 	public WebElement TagPersonOrGroup_Icon;
@@ -74,6 +77,8 @@ public class HomePage extends base {
 	@AndroidFindBy (id ="com.wog.himolly:id/img_thumbnail")
 	public WebElement Attached_Image;
 	
+	
+	//Poll
 	@AndroidFindBy(id = "com.wog.himolly:id/lnr_poll")
 	public WebElement Poll_Icon;
 	
@@ -86,6 +91,7 @@ public class HomePage extends base {
 	@AndroidFindBy (id ="com.wog.himolly:id/img_add")
 	public WebElement AddOption_Button;
 	
+	//Event
 	@AndroidFindBy (id ="com.wog.himolly:id/lnr_event")
 	public WebElement Event_Icon;
 	
@@ -113,8 +119,8 @@ public class HomePage extends base {
 	@AndroidFindBy (id ="com.wog.himolly:id/txt_end")
 	public WebElement EndDate_Textbox;
 	
-	
-	
+
+	//Category
 	@AndroidFindBy (id ="com.wog.himolly:id/lnr_category")
 	public WebElement SelectCategory;
 	
@@ -124,6 +130,17 @@ public class HomePage extends base {
 	@AndroidFindBy(uiAutomator = "new UiScrollable(new UiSelector()).scrollIntoView(text(\"Select Category\"));")
 	public WebElement ScrollInto_SelectCategory;
 	
+	@AndroidFindBy(id ="com.wog.himolly:id/btn_option")
+	public WebElement MoreIcon;
+	
+	@AndroidFindBy(xpath ="//android.widget.TextView[@text='Edit']")
+	public WebElement Edit_Category;
+	
+	@AndroidFindBy(xpath ="//android.widget.TextView[@text='Delete']")
+	public WebElement Delete_Category;
+	
+	@AndroidFindBy(id ="com.wog.himolly:id/txt_name")
+	public List<WebElement> Category_Name;
 	
 	@AndroidFindBy (id ="com.wog.himolly:id/dlg_txt_input")
 	public WebElement CategoryName_Textbox;
@@ -137,6 +154,7 @@ public class HomePage extends base {
 	@AndroidFindBy (id ="Cancel")
 	public WebElement CancelCategory_Button;
 	
+	//Announcement
 	@AndroidFindBy (uiAutomator ="text(\"Announcement\")")
 	public WebElement Announcement_Icon;
 	
@@ -146,6 +164,7 @@ public class HomePage extends base {
 	@AndroidFindBy (id ="com.wog.himolly:id/txt_detail")
 	public WebElement TypeYourAnnouncementDetails_Textbox;
 	
+	//Search Molly
 	@AndroidFindBy (accessibility = "Navigate up")
 	public WebElement Search_Icon;
 	
@@ -155,12 +174,19 @@ public class HomePage extends base {
 	@AndroidFindBy (id ="com.wog.himolly:id/txt_title")
 	public List<WebElement> ColleagueOrGroupName_Text;
 	
+	@AndroidFindBy (id ="com.wog.himolly:id/img_photo")
+	public WebElement ColleagueOrGroup_Picture;
+	
+	@AndroidFindBy (id ="com.wog.himolly:id/txt_name")
+	public WebElement ColleagueOrGroup_Name;
+	
 	
 	@AndroidFindBy (xpath = "//android.widget.Toast[1]")
 	public WebElement ToastMessage;
 
 	
 	//Test Case ID: Home_0001
+	//Test Scenario: Verify if the user can post status with valid data. 
 	public void PostStatusWithValidData(String WhatAreYouWorkingOn, String TagAPersonOrGroup, String Hashtag) throws InterruptedException
 	{
 		Status_Icon.click();
@@ -173,6 +199,7 @@ public class HomePage extends base {
 	}
 	
 	//Test Case ID: Home_0002
+	//Test Scenario: Verify if the user can post image only. 
 	public void PostImageOnly()
 	{
 		Status_Icon.click();
@@ -184,9 +211,11 @@ public class HomePage extends base {
 		String toastmessage = ToastMessage.getText();
 		String expectedmessage = "Your post was successfully posted.";
 		Assert.assertEquals(toastmessage, expectedmessage);
+		
 	}
 	
 	//Test Case ID: Home_0003
+	//Test Scenario: Verify if the user can post multiple images.
 	public void PostMultipleImages()
 	{
 		Status_Icon.click();
@@ -201,6 +230,7 @@ public class HomePage extends base {
 	}
 	
 	//Test Case ID: Home_0004
+	//Test Scenario: Verify if the user can delete attached image on Post Status page.
 	public void RemoveAttachedImage() throws InterruptedException
 	{
 	
@@ -212,7 +242,7 @@ public class HomePage extends base {
 			CheckView_Photo.get(0).click();
 			Apply_Button.click();
 			RemoveImage_Icon.get(0).click();
-			Assert.assertFalse(Attached_Image.isDisplayed());
+			Assert.assertTrue(!Attached_Image.isDisplayed());
 		}
 		catch(NoSuchElementException ex)
 		{
@@ -224,6 +254,7 @@ public class HomePage extends base {
 	}
 	
 	//Test Case ID: Home_0005
+	//Test Scenario: Verify if the user can delete multiple images on Post Status page.
 	public void RemoveMultipleAttachedImages() throws InterruptedException
 	{
 		try
@@ -246,12 +277,13 @@ public class HomePage extends base {
 	}
 	
 	//Test Case ID: Home_0006
-	public void PostStatusWithValidDataWithTagPersonOrGroup(String WhatAreYouWorkingOn, String TagAPersonOrGroup, String Hashtag) throws InterruptedException
+	//Test Scenario: Verify if the user can post status with tag person or group.
+	public void PostStatusWithValidDataWithTagPersonOrGroup(String WhatAreYouWorkingOn, String TagAPersonOrGroup, String TagAPersonOrGroup2, String Hashtag) throws InterruptedException
 	{
 		Status_Icon.click();
 		Hashtag_Icon.click();
 		WhatAreYouWorkinOn_Textbox.sendKeys(WhatAreYouWorkingOn);
-		//TagPersonOrGroup_Textbox.sendKeys(TagAPersonOrGroup);
+		TagPersonOrGroup_Textbox.sendKeys(TagAPersonOrGroup);
 		Image_Photo.click();
 		Send_Icon.click();
 		String toastmessage = ToastMessage.getText();
@@ -260,7 +292,9 @@ public class HomePage extends base {
 	}
 	
 	//Test Case ID: Home_0007
-	public void PostStatusWithMultipleTagPersonOrGroup(String WhatAreYouWorkingOn, String TagAPersonOrGroup, String TagAPersonOrGroup2, String Hashtag) throws InterruptedException
+	//Test Scenario: Verify if the user can post status with multiple tag person or group.
+
+	/* public void PostStatusWithMultipleTagPersonOrGroup(String WhatAreYouWorkingOn, String TagAPersonOrGroup, String TagAPersonOrGroup2, String Hashtag) throws InterruptedException
 	{
 		
 			Status_Icon.click();
@@ -278,9 +312,11 @@ public class HomePage extends base {
 			
 	
 		
-	}
+	}*/
+	
 	
 	//Test Case ID: Home_0008
+	//Test Scenario: Verify if the user can post status with tag person or group and hashtag.
 	public void PostStatusWithTagPersonOrGroupAndHashtag(String WhatAreYouWorkingOn, String TagAPersonOrGroup, String TagAPersonOrGroup2, String Hashtag) throws InterruptedException
 	{
 		Status_Icon.click();
@@ -288,7 +324,9 @@ public class HomePage extends base {
 		WhatAreYouWorkinOn_Textbox.sendKeys(WhatAreYouWorkingOn);
 		TagPersonOrGroup_Textbox.sendKeys(TagAPersonOrGroup);
 		Image_Photo.click();
-		Hashtag_Textbox.sendKeys(Hashtag);
+		Hashtag_Textbox.click();
+		Hashtag_Textbox.sendKeys(Hashtag +"");
+		Hashtag_Text.click();
 		//Send_Icon.click();
 		//String toastmessage = ToastMessage.getText();
 		//String expectedmessage = "Your post was successfully posted.";
@@ -298,6 +336,7 @@ public class HomePage extends base {
 	
 	
 	//Test Case ID: Home_00012
+	//Test Scenario: Verify if the user can post poll with valid data.
 	public void PostPollWithValidData(String WhatsThisPollABout, String Option1, String Option2)
 	{
 		Poll_Icon.click();
@@ -305,10 +344,14 @@ public class HomePage extends base {
 		Option_Textbox.get(0).sendKeys(Option1);
 		Option_Textbox.get(1).sendKeys(Option2);
 		Send_Icon.click();
+		String expectedMessage = "Your post was successfully posted.";
+		String toastMessage = ToastMessage.getText();
+		Assert.assertEquals(expectedMessage, toastMessage);
 			
 	}
 	
 	//Test Case ID: Home_00013
+	//Test Scenario: Verify if the user can post poll with more than two option.
 	public void PostPollWithMoreThanTwoOption(String WhatsThisPollABout, String Option1, String Option2, String Option3, String Option4)
 	{
 		Poll_Icon.click();
@@ -320,10 +363,14 @@ public class HomePage extends base {
 		Option_Textbox.get(2).sendKeys(Option3);
 		Option_Textbox.get(3).sendKeys(Option4);
 		Send_Icon.click();
+		String expectedMessage = "Your post was successfully posted.";
+		String toastMessage = ToastMessage.getText();
+		Assert.assertEquals(expectedMessage, toastMessage);
 		
 	}
 	
 	//Test Case ID: Home_0014
+	//Test Scenario: Verify if the user can add new category on event. 
 	public void AddNewCategory(String CategoryName, String SelectColor)
 	{
 		Event_Icon.click();
@@ -337,7 +384,31 @@ public class HomePage extends base {
 		Assert.assertEquals(toastmessage, expectedmessage);
 	}
 	
+	
+	//Test Case ID: Home_0015
+	//Test Scenario: Verify if the user can edit category on event. 
+	public void EditCategory(String CategoryName, String SelectColor)
+	{
+		Event_Icon.click();
+		ScrollInto_SelectCategory.click();
+		MoreIcon.click();
+		Edit_Category.click();
+		CategoryName_Textbox.sendKeys(CategoryName);
+		SelectPicker_Textbox.sendKeys(SelectColor);
+		SaveCategory_Button.click();
+		List<String> Category_List = new ArrayList<String>();
+		for (WebElement item : Category_Name) 
+		{
+			Category_List.add(item.getText().toString());
+			
+		}
+		System.out.println(Category_List.toString());
+		
+		
+	}
+	
 	//Test Case ID: Home_0017
+	//Test Scenario: Verify if the user can post Event with valid data on the fields. 
 	public void PostEventWithValidData()
 	{
 		Event_Icon.click();
@@ -352,6 +423,7 @@ public class HomePage extends base {
 	
 	
 	//Test Case ID: Home_0020
+	//Test Scenario: Verify if the user can post announcement with valid data.
 	public void PostAnnouncementWithValidData(String ThisAnnouncementisAbout, String TypeYourAnnouncementDetails )
 	{
 		Status_Icon.click();
@@ -367,13 +439,31 @@ public class HomePage extends base {
 	
 	
 	//Test Case ID: Home_0024
-	public void SearchColleagueOrGroup()
+	//Test Scenario: Verify if the user can search colleague or group.
+	public void SearchColleagueOrGroup(String SearchMolly)
 	{
 		Search_Icon.click();
-		SearchMolly_Textbox.sendKeys("Esteve Jobs");
-		String ColleagueOrGroup = SearchMolly_Textbox.getText();
-		String Result = ColleagueOrGroupName_Text.get(1).getText();
-		Assert.assertEquals(ColleagueOrGroup, Result);
+		SearchMolly_Textbox.sendKeys(SearchMolly);
+		List<String> getRes = new ArrayList<String>();
+		for (WebElement item : ColleagueOrGroupName_Text) 
+		{
+			getRes.add(item.getText().toString());
+		}
+		Assert.assertTrue(getRes.toString().contains(SearchMolly.toString()));
+
+		
+	}
+	
+	//Test Case ID: Home_0025
+	//Test Scenario: Verify if the user can view profile of colleague or group thru search.
+	
+	public void ViewProfile(String SearchMolly)
+	{
+		Search_Icon.click();
+		SearchMolly_Textbox.sendKeys(SearchMolly);
+		ColleagueOrGroup_Picture.click();
+		Assert.assertEquals(SearchMolly.toString(), ColleagueOrGroup_Name.getText());
+		
 		
 	}
 	

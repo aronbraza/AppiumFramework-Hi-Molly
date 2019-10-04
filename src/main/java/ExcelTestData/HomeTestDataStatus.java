@@ -152,6 +152,19 @@ public class HomeTestDataStatus {
 
 		}
 	
+	@DataProvider (name = "Home_0015")
+	public Object[][] Home_0015() throws Exception{
+
+	 	ExcelUtils.setExcelFile(System.getProperty("user.dir")+"\\excel\\testdata.xlsx","Add Edit Category Test Data");
+	 	sTestCaseName = "Home_0014";
+	  	sTestCaseName = ExcelUtils.getTestCaseName(sTestCaseName.toString());
+	 	iTestCaseRow = ExcelUtils.getRowContains(sTestCaseName,0);
+	    Object[][] testObjArray = ExcelUtils.getTableArray(System.getProperty("user.dir")+"\\excel\\testdata.xlsx", "Add Edit Category Test Data",iTestCaseRow);
+
+	    	return (testObjArray);
+
+		}
+	
 	
 	@DataProvider (name = "Home_0020")
 	public Object[][] Home_0020() throws Exception{
@@ -161,6 +174,33 @@ public class HomeTestDataStatus {
 	  	sTestCaseName = ExcelUtils.getTestCaseName(sTestCaseName.toString());
 	 	iTestCaseRow = ExcelUtils.getRowContains(sTestCaseName,0);
 	    Object[][] testObjArray = ExcelUtils.getTableArray(System.getProperty("user.dir")+"\\excel\\testdata.xlsx", "Announcement Test Data",iTestCaseRow);
+
+	    	return (testObjArray);
+
+		}
+	
+	@DataProvider (name = "Home_0024")
+	public Object[][] Home_0024() throws Exception{
+
+	 	ExcelUtils.setExcelFile(System.getProperty("user.dir")+"\\excel\\testdata.xlsx","Search Molly Test Data");
+	 	sTestCaseName = "Home_0024";
+	  	sTestCaseName = ExcelUtils.getTestCaseName(sTestCaseName.toString());
+	 	iTestCaseRow = ExcelUtils.getRowContains(sTestCaseName,0);
+	    Object[][] testObjArray = ExcelUtils.getTableArray(System.getProperty("user.dir")+"\\excel\\testdata.xlsx", "Search Molly Test Data",iTestCaseRow);
+
+	    	return (testObjArray);
+
+		}
+	
+	
+	@DataProvider (name = "Home_0025")
+	public Object[][] Home_0025() throws Exception{
+
+	 	ExcelUtils.setExcelFile(System.getProperty("user.dir")+"\\excel\\testdata.xlsx","Search Molly Test Data");
+	 	sTestCaseName = "Home_0025";
+	  	sTestCaseName = ExcelUtils.getTestCaseName(sTestCaseName.toString());
+	 	iTestCaseRow = ExcelUtils.getRowContains(sTestCaseName,0);
+	    Object[][] testObjArray = ExcelUtils.getTableArray(System.getProperty("user.dir")+"\\excel\\testdata.xlsx", "Search Molly Test Data",iTestCaseRow);
 
 	    	return (testObjArray);
 
