@@ -1,38 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="14" total="15" passed="1">
+<testng-results ignored="15" total="16" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="41489" started-at="2019-10-04T10:46:29Z" finished-at="2019-10-04T10:47:11Z">
+  <suite started-at="2020-02-21T18:59:57 SGT" name="Suite" finished-at="2020-02-21T19:00:31 SGT" duration-ms="34968">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="41489" started-at="2019-10-04T10:46:29Z" finished-at="2019-10-04T10:47:11Z">
-      <class name="WOG.AppiumFramework.HomeTest">
-        <test-method status="PASS" signature="killAllNodes()[pri:0, instance:WOG.AppiumFramework.HomeTest@5ae63ade]" name="killAllNodes" is-config="true" duration-ms="3038" started-at="2019-10-04T10:46:29Z" finished-at="2019-10-04T10:46:32Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- killAllNodes -->
-        <test-method status="PASS" signature="Home_0025(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:WOG.AppiumFramework.HomeTest@5ae63ade]" name="Home_0025" duration-ms="37319" started-at="2019-10-04T10:46:33Z" data-provider="Home_0025" finished-at="2019-10-04T10:47:11Z">
+    <test started-at="2020-02-21T18:59:57 SGT" name="Oh Jobs PH Mobile and Website Flow" finished-at="2020-02-21T19:00:31 SGT" duration-ms="34968">
+      <class name="OhJobsPHTest.OhJobsPhTest">
+        <test-method is-config="true" signature="getSuiteName(org.testng.ITestContext)[pri:0, instance:OhJobsPHTest.OhJobsPhTest@57cf54e1]" started-at="2020-02-21T18:59:57 SGT" name="getSuiteName" finished-at="2020-02-21T18:59:57 SGT" duration-ms="13" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[marymary@gmail.com]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[adminadmin123]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[Mark Mark]]>
+                <![CDATA[org.testng.TestRunner@1068176]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Home_0025 -->
-      </class> <!-- WOG.AppiumFramework.HomeTest -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+        </test-method> <!-- getSuiteName -->
+        <test-method is-config="true" signature="setInputSheetName(java.lang.String)[pri:0, instance:OhJobsPHTest.OhJobsPhTest@57cf54e1]" started-at="2020-02-21T18:59:57 SGT" name="setInputSheetName" finished-at="2020-02-21T18:59:58 SGT" duration-ms="1112" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Input.xlsx]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setInputSheetName -->
+        <test-method is-config="true" signature="setUp(java.lang.String, org.testng.ITestContext)[pri:0, instance:OhJobsPHTest.OhJobsPhTest@57cf54e1]" started-at="2020-02-21T18:59:58 SGT" name="setUp" finished-at="2020-02-21T18:59:58 SGT" duration-ms="278" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Login]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[org.testng.TestRunner@1068176]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method is-config="true" signature="initializeDriver()[pri:0, instance:OhJobsPHTest.OhJobsPhTest@57cf54e1]" started-at="2020-02-21T18:59:58 SGT" name="initializeDriver" finished-at="2020-02-21T19:00:13 SGT" depends-on-methods="resources.base.setInputSheetName, resources.base.setUp" duration-ms="14812" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- initializeDriver -->
+        <test-method signature="jobseekerSelectJobPreferenceWeb()[pri:0, instance:OhJobsPHTest.OhJobsPhTest@57cf54e1]" started-at="2020-02-21T19:00:13 SGT" name="jobseekerSelectJobPreferenceWeb" finished-at="2020-02-21T19:00:31 SGT" duration-ms="17799" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- jobseekerSelectJobPreferenceWeb -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:OhJobsPHTest.OhJobsPhTest@57cf54e1]" started-at="2020-02-21T19:00:31 SGT" name="tearDown" finished-at="2020-02-21T19:00:31 SGT" duration-ms="945" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- OhJobsPHTest.OhJobsPhTest -->
+    </test> <!-- Oh Jobs PH Mobile and Website Flow -->
+  </suite> <!-- Suite -->
 </testng-results>
